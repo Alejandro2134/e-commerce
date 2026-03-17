@@ -24,4 +24,8 @@ export class ProductsController {
   update() {
     return 'update product';
   }
+
+  delete() {
+    return 'delete product';
+  }
 }
