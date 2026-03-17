@@ -20,4 +20,8 @@ export class ProductsController {
   getOne() {
     return 'get one product';
   }
+
+  update() {
+    return 'update product';
+  }
 }
