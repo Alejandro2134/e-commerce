@@ -16,4 +16,8 @@ export class ProductsController {
   async create(createProductDTO: CreateProductDTO) {
     return await this.productsService.create(createProductDTO);
   }
+
+  getOne() {
+    return 'get one product';
+  }
 }
