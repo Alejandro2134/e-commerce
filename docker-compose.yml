@@ -1,0 +1,41 @@
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: ./services/api-gateway/Dockerfile
+    ports:
+      - "3000:3000"
+
+  products-service:
+    build:
+      context: .
+      dockerfile: ./services/products-service/Dockerfile
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+
+  orders-service:
+    build:
+      context: .
+      dockerfile: ./services/orders-service/Dockerfile
+    ports:
+      - "3002:3002"
+    depends_on:
+      - postgres
+      - products-service
+
+  postgres:
+    image: postgres:16
+    restart: no
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: ecommerce_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
