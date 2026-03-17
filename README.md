@@ -1,8 +1,10 @@
-## Ejecutar proyecto
+# Ejecutar proyecto
 
 Debes tener instalado docker y docker-compose, una vez los tengas ve a la raiz del proyecto y ejecura el comando `docker compose up` el cual va a levantar tanto los microservicios como la base de datos, una vez todos los servicios esten levantados dirigete a esta dirección en tu navegador: http://localhost:3000/api donde podras acceder a swagger y hacer peticiones para crear, listar productos y crear, listar ordenes.
 
-## Arquitectura de la solución
+<img width="1501" height="579" alt="image" src="https://github.com/user-attachments/assets/81ba8a00-84d9-4468-8dc6-68ce45016852" />
+
+# Arquitectura de la solución
 
 La solución fue implementada bajo una arquitectura de microservicios utilizando NestJS como framework principal en donde se definen cuatro componentes principales
 
@@ -15,7 +17,9 @@ Donde el cliente consume únicamente el API Gateway mediante endpoints REST. El 
 
 La atquitectura esta pensada para ser escalable, mantenible y mantiene una separación de responsabilidades al tener servicios con dominios totalmente diferentes (productos y ordenes), esto permite que si el catalogo de productos es solicitado mas por los usuarios solo esta parte pueda escalar sin importar si muchas ordenes son creadas o no, esto también permite que equipos de desarrollo se concentren en un servicio en especifico, haciendolos mas facil de debuguear para encontrar errores y actuar rapido ante bugs.
 
-## Diseño Cloud
+<img width="691" height="311" alt="arquitectura drawio" src="https://github.com/user-attachments/assets/b9ee9660-1b26-42fb-b22b-2aeb35e97312" />
+
+# Diseño Cloud
 
 La solución fue diseñada para ejecutarse en una simulación local de entorno cloud utilizando Docker Compose.
 
@@ -83,7 +87,7 @@ En un despliegue cloud real, esta solución podría migrarse a servicios como:
 
 La estructura actual facilita esta migración debido al desacoplamiento entre servicios.
 
-## Pipeline CI/CD
+# Pipeline CI/CD
 
 Puedes encontrar el archivo del pipeline en el siguiente link: https://github.com/Alejandro2134/e-commerce/blob/main/.github/workflows/products-service-ci.yml este pipeline se configuro para el servicio de productos
 
@@ -103,4 +107,7 @@ Puedes encontrar el archivo del pipeline en el siguiente link: https://github.co
 
 - Generate changelog: Se genera un changelog simple basado en los últimos commits del repositorio `git log –oneline -5 > CHANGELOG.md` Esto permite trazabilidad rápida de cambios recientes.
 
-## Diagrama entidad relación
+# Diagrama entidad relación
+
+<img width="701" height="301" alt="image" src="https://github.com/user-attachments/assets/d0fdf18d-ee4c-4626-bed3-a412f79e956c" />
+
